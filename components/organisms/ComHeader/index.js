@@ -6,7 +6,7 @@ import {FiHeart,FiSearch, FiShoppingCart, FiMenu} from 'react-icons/fi'
 export default function ComHeader() {
   return (
     <Container>
-      <Row className='justify-content-between pedding-navbar-moku'>
+      <Row className='justify-content-between mb-5 mt-md-3 gap-5 gap-md-0'>
         <Col md={4}>
           <Link href='#'>
             <a className='text-decoration-none c-primary font-size-mokuzai-46 font-weight-mokuzai-700'>

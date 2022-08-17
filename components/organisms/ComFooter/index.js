@@ -9,7 +9,7 @@ export default function ComFooter() {
       <Container className='pt-5 text-white'>
         <Row className='mb-5'>
           <Col md={5} className=''>
-            <div className='d-flex flex-column gap-3'>
+            <div className='d-flex flex-column gap-3 mb-4 mb-md-0'>
               <span className='font-size-mokuzai-46 font-weight-mokuzai-700'>MOKUZAI</span>
               <p className='c-ligth'>Donec nunc nunc, gravida vitae diam vel,<br/> varius interdum erat. Quisque a nunc vel<br/> diam auctor commodo.</p>
               <div className='d-flex flex-row gap-4'>
@@ -39,9 +39,9 @@ export default function ComFooter() {
               </div>
             </div>
           </Col>
-          <Col md={7} className='d-flex flex-row justify-content-between'>
-            <div className='d-flex flex-column gap-3'>
-              <span className='mb-3'>COMPANY</span>
+          <Col md={7} className='d-flex flex-column flex-md-row gap-4 gap-md-0 justify-content-between'>
+            <div className='d-flex flex-column gap-3 font-size-mokuzai-14 font-weight-mokuzai-400'>
+              <span className='mb-3 font-size-mokuzai-16 font-weight-mokuzai-700'>COMPANY</span>
               <Link href='#'>
                 <a className='text-decoration-none c-ligth'>
                   <span>About Us</span>
@@ -69,8 +69,8 @@ export default function ComFooter() {
               </Link>
             </div>
 
-            <div className='d-flex flex-column gap-3'>
-              <span className='mb-3'>USERFUL</span>
+            <div className='d-flex flex-column gap-3 font-size-mokuzai-14 font-weight-mokuzai-400'>
+              <span className='mb-3 font-size-mokuzai-16 font-weight-mokuzai-700'>USERFUL</span>
               <Link href='#'>
                 <a className='text-decoration-none c-ligth'>
                   <span>The Collections</span>
@@ -93,8 +93,8 @@ export default function ComFooter() {
               </Link>
             </div>
 
-            <div className='d-flex flex-column gap-3'>
-              <span className='mb-3'>CONTACT US</span>
+            <div className='d-flex flex-column gap-3 font-size-mokuzai-14 font-weight-mokuzai-400'>
+              <span className='mb-3 font-size-mokuzai-16 font-weight-mokuzai-700'>CONTACT US</span>
               <Link href='#'>
                 <a className='text-decoration-none text-white'>
                   <div className='d-flex flex-row align-items-center gap-4'>
