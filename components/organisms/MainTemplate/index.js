@@ -11,9 +11,7 @@ export default function MainTemplate(props) {
         <title>{props.title ? props.title : 'MOKUZAI'}</title>
       </Head>
       <ComHeader />
-      <Container className='py-4'>
-        {props.children}
-      </Container>
+      {props.children}
       <ComFooter />
     </>
   )
