@@ -210,6 +210,7 @@
 .font-size-mokuzai-76 {
   font-size: 76px;
 }
+
 .font-size-mokuzai-86 {
   font-size: 86px;
 }
@@ -275,6 +276,7 @@
 .image-product-wrap {
   max-width: 360px;
   max-height: 450px;
+}
 
 /* Home v2 */
 .head-background {
@@ -328,4 +330,8 @@
   width: 119px;
   height: 2px;
   border-top: 5px solid #1A1A1A;
+}
+
+.padding-y-200px {
+  padding: 0 200px;
 }
