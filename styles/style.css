@@ -72,7 +72,7 @@
 
 /* background color */
 .bgc-primary {
-  background-color: var(--theme-primary);
+  background-color: var(--theme-primary) !important;
 }
 .bgc-secondary {
   background-color: var(--theme-secondary);
@@ -191,4 +191,14 @@
   background: url('/backgrounds/bg-banner-auth.svg');
   background-repeat: unset;
   background-size: cover;
+}
+
+.size-btn-auth {
+  min-width: 125px;
+  min-height: 50px;
+}
+
+.size-box-reset-password {
+  max-width: 560px;
+  min-height: 268px;
 }

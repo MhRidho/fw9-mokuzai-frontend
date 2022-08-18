@@ -10,11 +10,11 @@ export default function MainTemplateAuth(props) {
   return (
     <>
       <Head>
-        <title>{props.title ? props.title : 'MOKUZAI'}</title>
+        <title>{props.title ? `MOKUZAI - ${props.title}` : 'MOKUZAI'}</title>
       </Head>
       <ComHeader />
       <ComBannerAuth title={props.titleBanner} desc={props.descBanner} />
-      <Container className='py-4'>
+      <Container className='py-5'>
         {props.children}
       </Container>
       <ComFooter />
