@@ -229,6 +229,7 @@
 
 .border-sharp {
   border-radius: unset !important;
+}
 
 .size-banner-auth {
   min-height: 250px;
@@ -249,4 +250,58 @@
 .size-box-reset-password {
   max-width: 560px;
   min-height: 268px;
+}
+
+/* Home v2 */
+.head-background {
+  background: url('/home/bg-mokuzai-headhome.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 796px;
+}
+
+.background-text {
+  padding-top: 300px;
+}
+
+.background-text-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4D4D4D;
+}
+
+.background-text-head {
+  font-weight: 700;
+  font-size: 76px;
+  color: #1A1A1A;
+}
+
+.partner-comp {
+  background-color: #161616;
+}
+
+.span-white {
+  color: var(--theme-ligth);
+}
+
+.span-home {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 55px;
+}
+
+.rules-home {
+  width: 72px;
+  height: 2px;
+  color: #D8D8D8;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  margin: auto;
+}
+
+.rules-home-content {
+  width: 119px;
+  height: 2px;
+  border-top: 5px solid #1A1A1A;
 }
