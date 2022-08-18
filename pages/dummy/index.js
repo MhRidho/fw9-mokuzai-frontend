@@ -1,13 +1,11 @@
 import React from 'react'
-import ComHeader from '../../components/organisms/ComHeader'
-import ComFooter from '../../components/organisms/ComFooter'
+import MainTemplateAuth from '../../components/organisms/MainTemplateAuth'
+
 
 export default function TestComponent() {
   return (
-    <>
-      <ComHeader />
-      <div>TestComponent</div>
-      <ComFooter />
-    </>
+    <MainTemplateAuth title='test judul' titleBanner='My Account' descBanner='Register and log in with your account to be able to shop at will'>
+      <h1>aaaaaaa</h1>
+    </MainTemplateAuth>
   )
 }

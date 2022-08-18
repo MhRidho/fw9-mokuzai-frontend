@@ -166,6 +166,9 @@
 .font-size-mokuzai-46 {
   font-size: 46px;
 }
+.font-size-mokuzai-56 {
+  font-size: 56px;
+}
 .font-size-mokuzai-60 {
   font-size: 60px;
 }
@@ -177,4 +180,15 @@
 .pedding-navbar-moku {
   padding-top: 50px;
   padding-bottom: 71px;
+}
+
+.size-banner-auth {
+  min-height: 250px;
+  width: 100%;
+}
+
+.bg-banner-auth {
+  background: url('/backgrounds/bg-banner-auth.svg');
+  background-repeat: unset;
+  background-size: cover;
 }
