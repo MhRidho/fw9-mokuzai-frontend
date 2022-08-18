@@ -12,7 +12,7 @@ export default function index() {
             <p>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc<br/> vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna<br/> dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam</p>
           </div>
         </Col>
-        <Col md={5}>
+        <Col md={5} className='justify-content-end'>
           <Image src={'/images/sova.png'} height={640} width={640} alt='test' />
         </Col>
       </div>
