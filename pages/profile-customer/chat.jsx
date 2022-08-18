@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Card, ListGroup, Form } from 'react-bootst
 import Image from 'next/image';
 import Ellipse2 from '../../public/img-chat/Ellipse2.png'
 import Ellipse31 from '../../public/img-chat/Ellipse3.png';
+import Ellipse31 from '../../public/img-chat/Ellipse3.png'
 import Ellipse4 from '../../public/img-chat/Ellipse4.png'
 import { FiChevronRight } from 'react-icons/fi';
 
@@ -18,6 +19,7 @@ const index = () => {
             </Col>
           </Row>
         </Container>
+
         <Container>
           <Row className='mt-5'>
             <Col>
@@ -113,7 +115,7 @@ const index = () => {
               </Card>
             </Col>
           </Row>
-        </Container>
+        </Container>   
       </Main>
     </>
   )
