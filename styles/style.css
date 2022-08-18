@@ -229,6 +229,7 @@
 
 .border-sharp {
   border-radius: unset !important;
+}
 
 .size-banner-auth {
   min-height: 250px;
