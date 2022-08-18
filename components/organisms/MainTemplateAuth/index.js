@@ -14,7 +14,7 @@ export default function MainTemplateAuth(props) {
       </Head>
       <ComHeader />
       <ComBannerAuth title={props.titleBanner} desc={props.descBanner} />
-      <Container>
+      <Container className='py-4'>
         {props.children}
       </Container>
       <ComFooter />
