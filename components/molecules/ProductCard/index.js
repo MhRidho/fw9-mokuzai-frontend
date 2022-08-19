@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap'
 
 export default function index({id, name, price}) {
   return (
-    <Col md={3} className='d-flex flex-column card-product justify-content-center'>
+    <Col md={3} className='d-flex flex-column card-product justify-content-center mb-3'>
       <div className='d-flex justify-content-center image-product-wrap overflow-hidden mb-3'>
         <Image src={'/images/image-product.png'} height={400} width={293} alt='products' />
       </div>
