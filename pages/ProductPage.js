@@ -1,8 +1,8 @@
 import React from 'react'
-import MainTemplate from '../../components/organisms/MainTemplate'
-import ProductCard from '../../components/molecules/ProductCard'
-import CardImage from '../../components/atoms/CardImageProductDetail'
-import { Button, Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
+import MainTemplate from '../components/organisms/MainTemplate'
+import ProductCard from '../components/molecules/ProductCard'
+import CardImage from '../components/atoms/CardImageProductDetail'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import Image from 'next/image'
 import { FiHeart } from 'react-icons/fi'
 import { GrDeliver } from 'react-icons/gr'
@@ -16,7 +16,7 @@ export default function TestComponent() {
   console.log(imageUrl);
   console.log(imageUrl);
   return (
-    <MainTemplate title='test judul' titleBanner='My Account' descBanner='Register and log in with your account to be able to shop at will'>
+    <MainTemplate title='Product' titleBanner='My Account' descBanner='Register and log in with your account to be able to shop at will'>
       <Container className='d-flex flex-column'>
         <Row className='mb-4'>
           <Col md={2} className='d-flex flex-column gap-3 justify-content-between'>
@@ -33,47 +33,6 @@ export default function TestComponent() {
           </Col>
         </Row>
 
-        {/* <Carousel showArrows={false} dynamicHeight={true} className=''>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/home/bg-mokuzai-headhome.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-          <div>
-            <img alt="" src="/images/sova.png" />
-          </div>
-        </Carousel> */}
         <div className='d-flex flex-column gap-3'>
           <span className='font-size-mokuzai-32 c-primary font-weight-mokuzai-400 mb-3'>Coaster Home Furnishings Sofa in Oatmeal</span>
           <div className='d-flex flex-row align-items-center gap-3'>

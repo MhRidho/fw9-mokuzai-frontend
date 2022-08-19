@@ -29,9 +29,11 @@ export default function ComHeader() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">About Us</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Contact Us</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Coming Soon</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">404 Page</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">FAQ Page</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </a>
@@ -45,9 +47,10 @@ export default function ComHeader() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Shopping Cart</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Check Out</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">My Account</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Order Tracking</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </a>
