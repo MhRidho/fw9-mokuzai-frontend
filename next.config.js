@@ -16,6 +16,14 @@ const nextConfig = {
         source: '/forgot-password',
         destination: '/auth/ForgotPassword',
       },
+      {
+        source: '/products',
+        destination: '/ProductList',
+      },
+      {
+        source: '/product',
+        destination: '/ProductPage',
+      },
     ]
   }
 }
