@@ -9,7 +9,7 @@ import News3 from '../../public/img-blog/news3.png';
 import News4 from '../../public/img-blog/news4.png';
 import AdBanner from '../../public/img-blog/adBanner.png';
 
-const Tracking = () => {
+const BlogAsideMenu = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     getCategories();
@@ -167,4 +167,4 @@ const Tracking = () => {
   )
 }
 
-export default Tracking;
+export default BlogAsideMenu;

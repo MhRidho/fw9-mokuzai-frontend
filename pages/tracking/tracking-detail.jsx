@@ -2,11 +2,11 @@ import Main from '../../components/organisms/MainTemplate';
 import { Container, Row, Col, Form, Button, InputGroup } from 'react-bootstrap';
 import Image from 'next/image';
 import { FiChevronRight } from 'react-icons/fi';
-import TruckBlack from '../../public/img-tracking/truckBlack.png';
-import TruckGrey from '../../public/img-tracking/truckGrey.png';
-import Line from '../../public/img-tracking/Line.png';
+import TruckBlack from '../../public/img-trackingg/truckBlack.png';
+import TruckGrey from '../../public/img-trackingg/truckGrey.png';
+import Line from '../../public/img-trackingg/Line.png';
 
-const TrackingDetail = () => {
+const TrackingDetails = () => {
   return (
     <>
       <Main>
@@ -80,4 +80,4 @@ const TrackingDetail = () => {
   )
 }
 
-export default TrackingDetail;
+export default TrackingDetails;

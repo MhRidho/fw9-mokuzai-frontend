@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 
-const Tracking = () => {
+const TrackingUpdate = () => {
   return (
     <>
       <Main>
@@ -52,4 +52,4 @@ const Tracking = () => {
   )
 }
 
-export default Tracking;
+export default TrackingUpdate;

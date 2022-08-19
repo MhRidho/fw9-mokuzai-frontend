@@ -5,7 +5,7 @@ import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 import BlogAsideMenu from './blog-aside-menu';
 
-const Tracking = () => {
+const BlogContent = () => {
   return (
     <>
       <Main>
@@ -35,4 +35,4 @@ const Tracking = () => {
   )
 }
 
-export default Tracking;
+export default BlogContent;
