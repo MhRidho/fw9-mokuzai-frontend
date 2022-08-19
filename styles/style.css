@@ -332,6 +332,39 @@
   border-top: 5px solid #1A1A1A;
 }
 
+/* About us */
+
+.about-background {
+  background: url('/backgrounds/bg-banner-auth.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-nav {
+  margin-left: 50px;;
+}
+
+.about-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.about-comp {
+  background-color: #F9F9F9;
+}
+
+/* Contact Us */
+
+.map-contact {
+  padding: 0;
+}
+
+.contact-form {
+  border: unset;
+  border-bottom: blue 2px solid;
+}
+=======
 .padding-y-200px {
   padding: 0 200px;
 }
