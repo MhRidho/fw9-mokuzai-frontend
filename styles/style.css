@@ -381,7 +381,8 @@
 }
 
 .text-nav {
-  margin-left: 50px;;
+  margin-left: 50px;
+  ;
 }
 
 .about-span {
@@ -409,3 +410,14 @@
   padding: 0 200px;
 }
 
+/* background tracking */
+.bg-map {
+  background-image: url(../public/img-tracking/MapsicleMap.png);
+  background-size: cover;
+}
+
+/* background blog content */
+.bg-content-1 {
+  background-image: url(../public/img-blog/content1.png);
+  background-repeat: no-repeat;
+}
