@@ -55,7 +55,7 @@ const MyOrder = () => {
           <NavbarProduct />
         </Container>
         <Navbar bg="white" expand="lg">
-          <Container fluid>
+          <Container>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
@@ -63,8 +63,8 @@ const MyOrder = () => {
               </Nav>
               <Nav>
                 <Nav.Link>PRICE</Nav.Link>
-                <Nav.Link className='mx-sm-3'>QUANTITY</Nav.Link>
-                <Nav.Link className='me-5'>STATUS ORDER</Nav.Link>
+                <Nav.Link className='mx-sm-5'>QUANTITY</Nav.Link>
+                <Nav.Link className='mx-sm-5'>STATUS ORDER</Nav.Link>
                 <Nav.Link>TOTAL</Nav.Link>
               </Nav>
             </Navbar.Collapse>

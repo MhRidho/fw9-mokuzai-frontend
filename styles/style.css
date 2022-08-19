@@ -210,6 +210,7 @@
 .font-size-mokuzai-76 {
   font-size: 76px;
 }
+
 .font-size-mokuzai-86 {
   font-size: 86px;
 }
@@ -280,6 +281,7 @@
   max-width: 360px;
   max-height: 450px;
 }
+
 /* Home v2 */
 .head-background {
   background: url('/home/bg-mokuzai-headhome.png');
@@ -369,3 +371,41 @@
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
+/* About us */
+
+.about-background {
+  background: url('/backgrounds/bg-banner-auth.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-nav {
+  margin-left: 50px;;
+}
+
+.about-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.about-comp {
+  background-color: #F9F9F9;
+}
+
+/* Contact Us */
+
+.map-contact {
+  padding: 0;
+}
+
+.contact-form {
+  border: unset;
+  border-bottom: blue 2px solid;
+}
+
+.padding-y-200px {
+  padding: 0 200px;
+}
+
