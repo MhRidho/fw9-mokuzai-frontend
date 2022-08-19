@@ -211,6 +211,10 @@
   font-size: 76px;
 }
 
+.font-size-mokuzai-86 {
+  font-size: 86px;
+}
+
 /* font size */
 
 .pedding-navbar-moku {
@@ -250,6 +254,28 @@
 .size-box-reset-password {
   max-width: 560px;
   min-height: 268px;
+}
+
+/* 404 Page Not Found */
+.strip-left-link {
+  width: 119px;
+  height: 2px;
+  background-color: var(--theme-primary);
+}
+
+.cricle-not-found {
+  width: 365px;
+  height: 365px;
+}
+
+.card-product {
+  max-width: 360px;
+  max-height: 539px;
+}
+
+.image-product-wrap {
+  max-width: 360px;
+  max-height: 450px;
 }
 
 /* Home v2 */
@@ -337,4 +363,8 @@
 .contact-form {
   border: unset;
   border-bottom: blue 2px solid;
+}
+=======
+.padding-y-200px {
+  padding: 0 200px;
 }
