@@ -1,10 +1,9 @@
 import Main from '../../components/organisms/MainTemplate';
 import { Container, Row, Col, Button, Card, ListGroup, Form } from 'react-bootstrap';
 import Image from 'next/image';
-import Ellipse2 from '../../public/img-chat/Ellipse2.png'
+import Ellipse2 from '../../public/img-chat/Ellipse2.png';
 import Ellipse31 from '../../public/img-chat/Ellipse3.png';
-import Ellipse31 from '../../public/img-chat/Ellipse3.png'
-import Ellipse4 from '../../public/img-chat/Ellipse4.png'
+import Ellipse4 from '../../public/img-chat/Ellipse4.png';
 import { FiChevronRight } from 'react-icons/fi';
 
 const index = () => {
@@ -115,7 +114,7 @@ const index = () => {
               </Card>
             </Col>
           </Row>
-        </Container>   
+        </Container>
       </Main>
     </>
   )

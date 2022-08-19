@@ -12,10 +12,7 @@ const index = () => {
       <Main>
         <Container className='bg-profile fluid'>
           <Row>
-
             <Col className='d-flex flex-column justify-content-center align-items-center my-5'>
-            <Col className='d-flex flex-column justify-content-center align-items-center mt-5'>
-
               <h1>Profile</h1>
               <h6>See your notifications for the latest updates</h6>
             </Col>
