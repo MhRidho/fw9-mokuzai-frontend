@@ -5,6 +5,9 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import MainTemplateAuth from '../../components/organisms/MainTemplateAuth'
 import LoginRegsiterLink from '../../components/molecules/LoginRegisterLink'
+import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
+import { login } from '../../redux/asyncAction/auth'
 
 const loginSechema  = Yup.object().shape({
   email: Yup.string().email('Invalid email address format').required(),
@@ -44,13 +47,27 @@ const AuthLogin =({errors, handleSubmit, handleChange})=> {
 
 
 export default function Login() {
+  const dispatch = useDispatch()
+  const navigate = useRouter()
+  const handelLogin = async (value) => {
+    console.log(value);
+    try {
+      setTimeout(() => {
+        dispatch(login(value))
+      }, 1000);
+      navigate.push('/')
+    } catch (e) {
+      console.log(e.response);
+      window.alert(e.response.result.msg)
+    }
+  }
   return (
     <MainTemplateAuth title='Login' titleBanner='My Account' descBanner='Register and log in with your account to be able to shop at will'>
       <Row className='gap-4 gap-md-0'>
         <LoginRegsiterLink />
         <Col md={7} className='d-flex flex-column gap-4'>
           <span className='c-black font-size-mokuzai-32 font-weight-mokuzai-400'>Login</span>
-          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSechema}>
+          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSechema} onSubmit={handelLogin}>
             {(props)=><AuthLogin {...props}/>}
           </Formik>
         </Col>
