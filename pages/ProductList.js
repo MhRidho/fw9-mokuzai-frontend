@@ -1,10 +1,61 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainTemplate from '../components/organisms/MainTemplate'
 import Banner from '../components/organisms/ComBannerAuth'
 import ProductCard from '../components/molecules/ProductCard'
 import { Button, Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
+import axiosServerSide from '../helper/axiosServerSide'
+import cookies from 'next-cookies'
+import { useDispatch, useSelector } from 'react-redux'
+import Router, { useRouter } from 'next/router';
+import { costomPagesMinus, costomPagesPlus } from '../redux/reducers/CostomPage'
 
-export default function ProductList() {
+
+export async function getServerSideProps(context) {
+  try {
+    // const dataCookie = cookies(context)
+    // const page = !context.query?.page? 1 : context.query.page;
+    // const search = !context.query?.search? '' : context.query.search;
+    const searchBy = !context.query?.searchBy? 'product_name' : context.query.searchBy
+    const search = !context.query?.search? '' : context.query.search
+    const sortBy = !context.query?.sortBy? 'product_price' : context.query.sortBy
+    const sort = !context.query?.sort? 'ASC' : context.query.sort
+    const limit = !context.query?.limit? 12 : context.query.limit
+    const page = !context.query?.page? 1 : context.query.page
+    const products = await axiosServerSide.get(`/product?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=${limit}&page=${page}`)
+    return {
+      props: {
+        pagination: products.data.pageInfo,
+        dataProducts: products.data.result
+      }
+    }
+  } catch (e) {
+    return {
+      props: {
+        // pagination: products.pageInfo,
+        message: e.message
+      }
+    }
+  }
+}
+
+export default function ProductList(props) {
+  const dispatch = useDispatch()
+  const numberpage = useSelector((state)=> state.CostomPage.page)
+  useEffect(()=> {
+    const search = ''
+    const searchBy = ''
+    const sortBy = ''
+    // const sort = 'ASC'
+    Router.push(`/products?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=ASC&limit=12&page=${numberpage}`)
+  },[numberpage])
+
+  const nextPage = () => {
+    dispatch(costomPagesPlus())
+  }
+  const prevPage = () => {
+    dispatch(costomPagesMinus())
+  }
+
   return (
     <MainTemplate>
       <Banner title={'Let’s Shopping'} desc={'Find and buy the one you like'} />
@@ -149,6 +200,7 @@ export default function ProductList() {
               </Dropdown>
             </div>
             <Row>
+              {/* <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
@@ -159,20 +211,24 @@ export default function ProductList() {
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
-              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
-              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
+              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} /> */}
+              {props?.dataProducts?.map((o) => {
+                return(
+                  <ProductCard key={o.product_name} name={o.product_name} price={o.product_price} />
+                )
+              })}
             </Row>
-            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center'>
+            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center mt-auto'>
               <div>
-                <Button className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button disabled={props.pagination.nextPage ? false : true} onClick={prevPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Prev</span>
                 </Button>
               </div>
               <div>
-                <span className='font-size-mokuzai-24 font-weight-mokuzai-700'>1</span>
+                <span className='font-size-mokuzai-24 font-weight-mokuzai-700'>{numberpage}</span>
               </div>
               <div>
-                <Button className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button disabled={props.pagination.prevPage ? false : true } onClick={nextPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Next</span>
                 </Button>
               </div>
