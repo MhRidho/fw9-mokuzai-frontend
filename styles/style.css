@@ -408,3 +408,8 @@
 .padding-y-200px {
   padding: 0 200px;
 }
+
+.wrap-image-profile {
+  width: 100px;
+  height: 100px;
+}

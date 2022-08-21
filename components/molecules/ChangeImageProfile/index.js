@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { FiEdit2 } from 'react-icons/fi'
 import { Formik } from 'formik'
+import Image from 'next/image'
 
 const FormChange = ({errors, handleSubmit, handleChange})=> {
   return (
@@ -46,8 +47,11 @@ function ModalFormEditImage(props){
 export default function ModalChangeImage() {
   const [modal, setModal] = useState(false)
   return (
-    <div>
-      <Button className='bgc-unset shadow-none border-0' onClick={()=> setModal(true)}>
+    <div className='d-flex flex-column gap-2 justify-content-center'>
+      <div className='wrap-image-profile overflow-hidden'>
+        <Image src={'/img-profile-seller/Ellipse-3.png'} width={100} height={100} alt='profile pic' />
+      </div>
+      <Button className='bgc-unset shadow-none border-0 mx-auto' onClick={()=> setModal(true)}>
         <div className='d-flex flex-row align-items-center gap-2'>
           <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>EDIT</span>
           <FiEdit2 className='c-primary' />
