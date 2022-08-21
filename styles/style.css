@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arimo', sans-serif;
+}
+
+:root {
+  --theme-primary: #1A1713;
+  --theme-secondary: #F7CCAC;
+
+  --theme-primary-soft: #C69B7B;
+  --theme-secondary-soft: #826F66;
+
+  --theme-ligth: #D4D4D4;
+  --theme-dark: #9B9B9B;
+
+  --theme-white: #F9F9F9;
+  --theme-black: #222222;
+
+  --theme-suede: #B8926A;
+  --theme-cotton: #F2F3EC;
+  --theme-warm-smoke: #B5ACA3;
+  --theme-china-doll: #D4C8BE;
+  --theme-chinchilla: #A4918E;
+}
+
+/* color */
+.c-primary {
+  color: var(--theme-primary);
+}
+
+.c-secondary {
+  color: var(--theme-secondary);
+}
+
+.c-primary-soft {
+  color: var(--theme-primary-soft);
+}
+
+.c-secondary-soft {
+  color: var(--theme-secondary-soft);
+}
+
+.c-ligth {
+  color: var(--theme-ligth);
+}
+
+.c-dark {
+  color: var(--theme-dark);
+}
+
+.c-white {
+  color: var(--theme-white);
+}
+
+.c-black {
+  color: var(--theme-black) !important;
+}
+
+.c-suede {
+  color: var(--theme-suede);
+}
+
+.c-cotton {
+  color: var(--theme-cotton);
+}
+
+.c-warm-smoke {
+  color: var(--theme-warm-smoke);
+}
+
+.c-china-doll {
+  color: var(--theme-china-doll);
+}
+
+.c-chinchilla {
+  color: var(--theme-chinchilla);
+}
+
+/* color */
+
+/* background color */
+.bgc-primary {
+  background-color: var(--theme-primary) !important;
+}
+
+.bgc-secondary {
+  background-color: var(--theme-secondary);
+}
+
+.bgc-primary-soft {
+  background-color: var(--theme-primary-soft);
+}
+
+.bgc-secondary-soft {
+  background-color: var(--theme-secondary-soft);
+}
+
+.bgc-ligth {
+  background-color: var(--theme-ligth);
+}
+
+.bgc-dark {
+  background-color: var(--theme-dark);
+}
+
+.bgc-white {
+  background-color: var(--theme-white);
+}
+
+.bgc-black {
+  background-color: var(--theme-black);
+}
+
+.bgc-suede {
+  background-color: var(--theme-suede);
+}
+
+.bgc-cotton {
+  background-color: var(--theme-cotton);
+}
+
+.bgc-warm-smoke {
+  background-color: var(--theme-warm-smoke);
+}
+
+.bgc-china-doll {
+  background-color: var(--theme-china-doll);
+}
+
+.bgc-chinchilla {
+  background-color: var(--theme-chinchilla);
+}
+
+.bgc-unset {
+  background-color: unset !important;
+}
+
+/* background color */
+
+/* font */
+.font-primary-mokuzai {
+  font-family: 'Arimo';
+}
+
+/* font */
+
+/* font weight */
+.font-weight-mokuzai-400 {
+  font-weight: 400;
+}
+
+.font-weight-mokuzai-500 {
+  font-weight: 500;
+}
+
+.font-weight-mokuzai-600 {
+  font-weight: 600;
+}
+
+.font-weight-mokuzai-700 {
+  font-weight: 700;
+}
+
+/* font weight */
+
+/* font size */
+.font-size-mokuzai-10 {
+  font-size: 10px;
+}
+
+.font-size-mokuzai-12 {
+  font-size: 12px;
+}
+
+.font-size-mokuzai-14 {
+  font-size: 14px;
+}
+
+.font-size-mokuzai-16 {
+  font-size: 16px;
+}
+
+.font-size-mokuzai-18 {
+  font-size: 18px;
+}
+
+.font-size-mokuzai-24 {
+  font-size: 24px;
+}
+
+.font-size-mokuzai-28 {
+  font-size: 28px;
+}
+
+.font-size-mokuzai-32 {
+  font-size: 32px;
+}
+
+.font-size-mokuzai-46 {
+  font-size: 46px;
+}
+
+.font-size-mokuzai-56 {
+  font-size: 56px;
+}
+
+.font-size-mokuzai-76 {
+  font-size: 76px;
+}
+
+.font-size-mokuzai-86 {
+  font-size: 86px;
+}
+
+/* font size */
+
+.pedding-navbar-moku {
+  padding-top: 50px;
+  padding-bottom: 71px;
+}
+
+.bg-profile {
+  background-image: url(../public/img-profile-seller/bg.png);
+  /* background-size: cover; */
+}
+
+.cursor:hover {
+  cursor: pointer;
+}
+
+.border-sharp {
+  border-radius: unset !important;
+}
+
+.size-banner-auth {
+  min-height: 250px;
+  width: 100%;
+}
+
+.bg-banner-auth {
+  background: url('/backgrounds/bg-banner-auth.svg');
+  background-repeat: unset;
+  background-size: cover;
+}
+
+.size-btn-auth {
+  min-width: 125px;
+  min-height: 50px;
+}
+
+.size-btn-page-product {
+  min-width: 200px;
+  min-height: 50px;
+}
+
+.size-box-reset-password {
+  max-width: 560px;
+  min-height: 268px;
+}
+
+/* 404 Page Not Found */
+.strip-left-link {
+  width: 119px;
+  height: 2px;
+  background-color: var(--theme-primary);
+}
+
+.cricle-not-found {
+  width: 365px;
+  height: 365px;
+}
+
+.card-product {
+  max-width: 360px;
+  max-height: 539px;
+}
+
+.image-product-wrap {
+  max-width: 360px;
+  max-height: 450px;
+}
+
+/* Home v2 */
+.head-background {
+  background: url('/home/bg-mokuzai-headhome.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 796px;
+}
+
+.background-text {
+  padding-top: 300px;
+}
+
+.background-text-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4D4D4D;
+}
+
+.background-text-head {
+  font-weight: 700;
+  font-size: 76px;
+  color: #1A1A1A;
+}
+
+.partner-comp {
+  background-color: #161616;
+}
+
+.span-white {
+  color: var(--theme-ligth);
+}
+
+.span-home {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 55px;
+}
+
+.rules-home {
+  width: 72px;
+  height: 2px;
+  color: #D8D8D8;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  margin: auto;
+}
+
+.rules-home-content {
+  width: 119px;
+  height: 2px;
+  border-top: 5px solid #1A1A1A;
+}
+
+.image-product-page-wrap {
+  height: 134px;
+  width: 140px;
+  position: 'relative'
+}
+
+.image-product-page-size {
+  height: auto !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.image-product-page-main-wrap {
+  min-height: 805px;
+}
+
+.quantity-btn-product {
+  width: 110px;
+  height: 60px;
+}
+
+.add-cart-btn-product {
+  width: 150px;
+  height: 60px;
+}
+
+.favorit-btn-product {
+  width: 60px;
+  height: 60px;
+}
+
+.product-slide {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+/* About us */
+
+.about-background {
+  background: url('/backgrounds/bg-banner-auth.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-nav {
+  margin-left: 50px;
+  ;
+}
+
+.about-span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.about-comp {
+  background-color: #F9F9F9;
+}
+
+/* Contact Us */
+
+.map-contact {
+  padding: 0;
+}
+
+.contact-form {
+  border: unset;
+  border-bottom: blue 2px solid;
+}
+
+.padding-y-200px {
+  padding: 0 200px;
+}
+
+/* background tracking */
+.bg-map {
+  background-image: url(../public/img-trackingg/MapsicleMap.png);
+  background-size: cover;
+}
+
+/* background blog content */
+.bg-content-1 {
+  background-image: url(../public/img-blog/content1.png);
+  background-repeat: no-repeat;
+}
+
+.margin-x {
+  margin-top: 430px;
+}
