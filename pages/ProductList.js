@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainTemplate from '../components/organisms/MainTemplate'
 import Banner from '../components/organisms/ComBannerAuth'
 import ProductCard from '../components/molecules/ProductCard'
 import { Button, Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
 import axiosServerSide from '../helper/axiosServerSide'
 import cookies from 'next-cookies'
+import { useDispatch, useSelector } from 'react-redux'
+import Router, { useRouter } from 'next/router';
+import { costomPagesMinus, costomPagesPlus } from '../redux/reducers/CostomPage'
 
 
 export async function getServerSideProps(context) {
@@ -21,8 +24,8 @@ export async function getServerSideProps(context) {
     const products = await axiosServerSide.get(`/product?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=${limit}&page=${page}`)
     return {
       props: {
-        allData: products.result
-        // dataUsers: products.data.data
+        pagination: products.pageInfo,
+        dataProducts: products.result
       }
     }
   } catch (e) {
@@ -30,7 +33,24 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function ProductList() {
+export default function ProductList(props) {
+  const dispatch = useDispatch()
+  const numberpage = useSelector((state)=> state.CostomPage.page)
+  useEffect(()=> {
+    const search = ''
+    const searchBy = ''
+    const sortBy = ''
+    const sort = ''
+    Router.push(`/products?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=12&page=${numberpage}`)
+  },[numberpage])
+
+  const nextPage = () => {
+    dispatch(costomPagesPlus())
+  }
+  const prevPage = () => {
+    dispatch(costomPagesMinus())
+  }
+
   return (
     <MainTemplate>
       <Banner title={'Let’s Shopping'} desc={'Find and buy the one you like'} />
@@ -175,6 +195,7 @@ export default function ProductList() {
               </Dropdown>
             </div>
             <Row>
+              {/* <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
@@ -185,12 +206,16 @@ export default function ProductList() {
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
-              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
-              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} />
+              <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} /> */}
+              {props?.dataProducts?.map((o) => {
+                return(
+                  <ProductCard key={o.product_name} name={o.product_name} price={o.product_price} />
+                )
+              })}
             </Row>
             <div className='d-flex flex-column flex-md-row justify-content-between align-items-center'>
               <div>
-                <Button className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button onClick={prevPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Prev</span>
                 </Button>
               </div>
@@ -198,7 +223,7 @@ export default function ProductList() {
                 <span className='font-size-mokuzai-24 font-weight-mokuzai-700'>1</span>
               </div>
               <div>
-                <Button className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button onClick={nextPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Next</span>
                 </Button>
               </div>
