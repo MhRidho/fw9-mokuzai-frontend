@@ -15,21 +15,26 @@ export async function getServerSideProps(context) {
     // const dataCookie = cookies(context)
     // const page = !context.query?.page? 1 : context.query.page;
     // const search = !context.query?.search? '' : context.query.search;
-    const searchBy = !context.query?.searchBy? '' : context.query.searchBy
+    const searchBy = !context.query?.searchBy? 'product_name' : context.query.searchBy
     const search = !context.query?.search? '' : context.query.search
-    const sortBy = !context.query?.sortBy? '' : context.query.sortBy
-    const sort = !context.query?.sort? '' : context.query.sort
-    const limit = !context.query?.limit? '' : context.query.limit
+    const sortBy = !context.query?.sortBy? 'product_price' : context.query.sortBy
+    const sort = !context.query?.sort? 'ASC' : context.query.sort
+    const limit = !context.query?.limit? 12 : context.query.limit
     const page = !context.query?.page? 1 : context.query.page
     const products = await axiosServerSide.get(`/product?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=${limit}&page=${page}`)
     return {
       props: {
-        pagination: products.pageInfo,
-        dataProducts: products.result
+        pagination: products.data.pageInfo,
+        dataProducts: products.data.result
       }
     }
   } catch (e) {
-    console.log(e);
+    return {
+      props: {
+        // pagination: products.pageInfo,
+        message: e.message
+      }
+    }
   }
 }
 
@@ -40,8 +45,8 @@ export default function ProductList(props) {
     const search = ''
     const searchBy = ''
     const sortBy = ''
-    const sort = ''
-    Router.push(`/products?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=12&page=${numberpage}`)
+    // const sort = 'ASC'
+    Router.push(`/products?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=ASC&limit=12&page=${numberpage}`)
   },[numberpage])
 
   const nextPage = () => {
@@ -213,17 +218,17 @@ export default function ProductList(props) {
                 )
               })}
             </Row>
-            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center'>
+            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center mt-auto'>
               <div>
-                <Button onClick={prevPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button disabled={props.pagination.nextPage ? false : true} onClick={prevPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Prev</span>
                 </Button>
               </div>
               <div>
-                <span className='font-size-mokuzai-24 font-weight-mokuzai-700'>1</span>
+                <span className='font-size-mokuzai-24 font-weight-mokuzai-700'>{numberpage}</span>
               </div>
               <div>
-                <Button onClick={nextPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
+                <Button disabled={props.pagination.prevPage ? false : true } onClick={nextPage} className='d-block rounded-0 size-btn-page-product bgc-primary border-0 shadow-none'>
                   <span className='font-size-mokuzai-14 font-weight-mokuzai-700'>Next</span>
                 </Button>
               </div>
