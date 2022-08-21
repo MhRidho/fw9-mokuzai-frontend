@@ -3,6 +3,32 @@ import MainTemplate from '../components/organisms/MainTemplate'
 import Banner from '../components/organisms/ComBannerAuth'
 import ProductCard from '../components/molecules/ProductCard'
 import { Button, Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
+import axiosServerSide from '../helper/axiosServerSide'
+import cookies from 'next-cookies'
+
+
+export async function getServerSideProps(context) {
+  try {
+    // const dataCookie = cookies(context)
+    // const page = !context.query?.page? 1 : context.query.page;
+    // const search = !context.query?.search? '' : context.query.search;
+    const searchBy = !context.query?.searchBy? '' : context.query.searchBy
+    const search = !context.query?.search? '' : context.query.search
+    const sortBy = !context.query?.sortBy? '' : context.query.sortBy
+    const sort = !context.query?.sort? '' : context.query.sort
+    const limit = !context.query?.limit? '' : context.query.limit
+    const page = !context.query?.page? 1 : context.query.page
+    const products = await axiosServerSide.get(`/product?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sort=${sort}&limit=${limit}&page=${page}`)
+    return {
+      props: {
+        allData: products.result
+        // dataUsers: products.data.data
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 export default function ProductList() {
   return (
