@@ -250,6 +250,7 @@
   min-width: 125px;
   min-height: 50px;
 }
+
 .size-btn-page-product {
   min-width: 200px;
   min-height: 50px;
@@ -381,7 +382,8 @@
 }
 
 .text-nav {
-  margin-left: 50px;;
+  margin-left: 50px;
+  ;
 }
 
 .about-span {
@@ -409,7 +411,19 @@
   padding: 0 200px;
 }
 
-.wrap-image-profile {
-  width: 100px;
-  height: 100px;
+
+/* background tracking */
+.bg-map {
+  background-image: url(../public/img-trackingg/MapsicleMap.png);
+  background-size: cover;
+}
+
+/* background blog content */
+.bg-content-1 {
+  background-image: url(../public/img-blog/content1.png);
+  background-repeat: no-repeat;
+}
+
+.margin-x {
+  margin-top: 430px;
 }
