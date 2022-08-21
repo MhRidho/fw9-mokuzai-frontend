@@ -9,6 +9,13 @@ import { GrDeliver } from 'react-icons/gr'
 import { BiRuler, BiMap } from 'react-icons/bi'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
+import ModalChangeName from '../../components/molecules/ChangeName'
+import ModalChangeImage from '../../components/molecules/ChangeImageProfile'
+import ModalChangeGender from '../../components/molecules/ChangeGender'
+import ModalChangeEmail from '../../components/molecules/ChangeEmail'
+import ModalChangeNameStore from '../../components/molecules/ChangeStorename'
+import ModalChangeDesc from '../../components/molecules/ChangeDesc'
+import ModalChangeDescStore from '../../components/molecules/ChangeDescStore'
 
 
 export default function TestComponent() {
@@ -174,6 +181,22 @@ export default function TestComponent() {
             </div>
           </div>
           {/* carousel */}
+        </div>
+        <div className='d-flex flex-row gap-2 align-items-center'>
+          nama
+          <ModalChangeName />
+          image
+          <ModalChangeImage />
+          gender
+          <ModalChangeGender />
+          email
+          <ModalChangeEmail />
+          store Name
+          <ModalChangeNameStore />
+          desc
+          <ModalChangeDesc />
+          desc store
+          <ModalChangeDescStore />
         </div>
       </Container>
     </MainTemplate>

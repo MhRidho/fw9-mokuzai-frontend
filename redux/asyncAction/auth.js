@@ -36,7 +36,7 @@ export const login = createAsyncThunk('auth/login-user', async (request)=> {
     const { data } = await axiosServer().post('auth/login', send )
     // console.log(data);
     Cookies.set('token', data.result.token)
-    result.id = data.result.id
+    result.id = data.result.user_id
     result.roles = data.result.roles
     window.alert(data.message)
     return result
