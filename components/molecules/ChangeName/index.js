@@ -54,7 +54,6 @@ export default function ModalChangeName() {
     <div>
       <Button className='bgc-unset shadow-none border-0' onClick={()=> setModal(true)}>
         <div className='d-flex flex-row align-items-center gap-2'>
-          <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>EDIT</span>
           <FiEdit2 className='c-primary' />
         </div>
       </Button>

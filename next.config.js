@@ -24,6 +24,14 @@ const nextConfig = {
         source: '/product',
         destination: '/ProductPage',
       },
+      {
+        source: '/profile/customer',
+        destination: '/profiles/customer/ProfileCust',
+      },
+      {
+        source: '/profile/seller',
+        destination: '/profiles/seller/ProfileSeller',
+      },
     ]
   }
 }
