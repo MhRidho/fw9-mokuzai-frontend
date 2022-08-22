@@ -46,7 +46,7 @@ const MyProduct = () => {
   return (
     <>
       <Main>
-        <Container className='bg-profile fluid'>
+        <Container fluid className='bg-profile'>
           <Row>
             <Col className='d-flex flex-column justify-content-center align-items-center mt-5'>
               <h1>My Product</h1>

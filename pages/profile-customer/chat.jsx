@@ -10,7 +10,7 @@ const index = () => {
   return (
     <>
       <Main>
-        <Container className='bg-profile fluid'>
+        <Container fluid className='bg-profile'>
           <Row>
             <Col className='d-flex flex-column justify-content-center align-items-center my-5'>
               <h1>Chat</h1>

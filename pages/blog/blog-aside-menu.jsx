@@ -95,38 +95,38 @@ const BlogAsideMenu = () => {
             <Image src={News1} alt='Ellipse31' title="Profile" className='cursor' />
           </Col>
           <Col md={8} className='d-flex flex-column justify-content-center'>
-            <h5 className='cursor fw-bold'>How To Put Movies On Iphone</h5>
-            <p className='font-size-mokuzai-16'>24 Apr 2019, 45 mins ago</p>
+            <h5 className='cursor fw-bold font-size-mokuzai-14'>How To Put Movies On Iphone</h5>
+            <p className='font-size-mokuzai-10'>24 Apr 2019, 45 mins ago</p>
           </Col>
-          <hr />
+          <hr className='mt-4' />
         </Row>
         <Row className='p-3'>
           <Col>
             <Image src={News2} alt='Ellipse31' title="Profile" className='cursor' />
           </Col>
           <Col md={8} className='d-flex flex-column justify-content-center'>
-            <h5 className='cursor fw-bold'>Windows Registry Cleaner Checklist</h5>
-            <p className='font-size-mokuzai-16'>24 Apr 2019, 45 mins ago</p>
+            <h5 className='cursor fw-bold font-size-mokuzai-14'>Windows Registry Cleaner Checklist</h5>
+            <p className='font-size-mokuzai-10'>24 Apr 2019, 45 mins ago</p>
           </Col>
-          <hr />
+          <hr className='mt-4' />
         </Row>
         <Row className='p-3'>
           <Col>
             <Image src={News3} alt='Ellipse31' title="Profile" className='cursor' />
           </Col>
           <Col md={8} className='d-flex flex-column justify-content-center'>
-            <h5 className='cursor fw-bold'>Messes Make Memories</h5>
-            <p className='font-size-mokuzai-16'>24 Apr 2019, 45 mins ago</p>
+            <h5 className='cursor fw-bold font-size-mokuzai-14'>Messes Make Memories</h5>
+            <p className='font-size-mokuzai-10'>24 Apr 2019, 45 mins ago</p>
           </Col>
-          <hr />
+          <hr className='mt-4' />
         </Row>
         <Row className='p-3'>
           <Col>
             <Image src={News4} alt='Ellipse31' title="Profile" className='cursor' />
           </Col>
           <Col md={8} className='d-flex flex-column justify-content-center'>
-            <h5 className='cursor fw-bold'>Modern Light House</h5>
-            <p className='font-size-mokuzai-16'>24 Apr 2019, 45 mins ago</p>
+            <h5 className='cursor fw-bold font-size-mokuzai-14'>Modern Light House</h5>
+            <p className='font-size-mokuzai-10'>24 Apr 2019, 45 mins ago</p>
           </Col>
         </Row>
         <h2 className='fw-bold mt-5 mb-4'>Archives</h2>
