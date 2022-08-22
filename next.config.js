@@ -32,6 +32,14 @@ const nextConfig = {
         source: '/profile/seller',
         destination: '/profiles/seller/ProfileSeller',
       },
+      {
+        source: '/profile/cart',
+        destination: '/pageCart/pageCartnew',
+      },
+      {
+        source: '/profile/cart/checkout',
+        destination: '/pageCart/checkout',
+      },
     ]
   }
 }
