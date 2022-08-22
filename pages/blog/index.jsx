@@ -13,10 +13,10 @@ const BlogContent = () => {
   return (
     <>
       <Main>
-        <Container fluid className='bg-profile fluid py-4 px-5'>
-          <Row>
+        <Container fluid className='bg-profile fluid py-4 px-sm-5'>
+          <Row className='ms-sm-2'>
             <Col>
-              <h6 className='cursor ms-5'>Blog <FiChevronRight className='ms-2' /></h6>
+              <Link href={'/blog/blog-content-detail'}><h6 className='cursor ms-5'>Blog <FiChevronRight className='ms-2' /></h6></Link>
             </Col>
           </Row>
           <Row>
@@ -34,7 +34,7 @@ const BlogContent = () => {
               <p className='font-size-mokuzai-10 d-inline'><FiClock className='me-1' />24 Apr 2019, 45 mins ago, by Admin</p>
               <p className='font-size-mokuzai-10'><FiTag className='me-1' />Kids, Interior, Photos</p>
               <p className='font-size-mokuzai-14'>Maecenas eget congue augue. Sed mollis tempor velit, et tempor justo cursus vel. Phasellus lacinia placerat lacus, vulputate volutpat tellus fringilla eu. Phasellus rhoncus varius tortor, non ultricies felis condimentum eget unc ornare suscipit nulla sagittis faucibu</p>
-              <h6 className='fw-bold d-inline'>Read More<hr /></h6>
+              <Link href={'/blog/blog-content-detail'}><h6 className='fw-bold d-inline cursor'>Read More</h6></Link>
               <Container className='pt-4'>
                 <Row>
                   <Col>
@@ -46,7 +46,7 @@ const BlogContent = () => {
                   </Col>
                 </Row>
               </Container>
-              <h6 className='fw-bold d-inline'>Read More<hr /></h6>
+              <h6 className='fw-bold d-inline cursor'>Read More<hr /></h6>
               <Container className='pt-4'>
                 <Row>
                   <Col>
@@ -58,7 +58,7 @@ const BlogContent = () => {
                   </Col>
                 </Row>
               </Container>
-              <h6 className='fw-bold d-inline'>Read More<hr /></h6>
+              <h6 className='fw-bold d-inline cursor'>Read More<hr /></h6>
               <Container className='pt-4'>
                 <Row>
                   <Col>
@@ -70,7 +70,7 @@ const BlogContent = () => {
                   </Col>
                 </Row>
               </Container>
-              <h6 className='fw-bold d-inline'>Read More<hr /></h6>
+              <h6 className='fw-bold d-inline cursor'>Read More<hr /></h6>
               <Container className='pt-4'>
                 <Row>
                   <Col>
@@ -82,7 +82,7 @@ const BlogContent = () => {
                   </Col>
                 </Row>
               </Container>
-              <h6 className='fw-bold d-inline'>Read More<hr /></h6>
+              <h6 className='fw-bold d-inline cursor'>Read More<hr /></h6>
               <Row className='my-5 pb-5'>
                 <Col md={3}>
                   <ButtonGroup aria-label="Basic example" className='d-flex gap-3'>

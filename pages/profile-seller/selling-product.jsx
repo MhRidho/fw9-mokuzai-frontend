@@ -11,7 +11,7 @@ const index = () => {
   return (
     <>
       <Main>
-        <Container className='bg-profile fluid'>
+        <Container fluid className='bg-profile'>
           <Row>
             <Col className='d-flex flex-column justify-content-center align-items-center mt-5'>
               <h1>Selling Product</h1>
@@ -26,10 +26,10 @@ const index = () => {
               <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label><h4 className='fw-bold'>Inventory</h4></Form.Label>
-                  <Form.Control size="lg" type="email" placeholder="Name of goods *" className='border-sharp' />
+                  <Form.Control type="email" placeholder="Name of goods *" className='border-sharp p-3 shadow-none' />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                  <Form.Control size="lg" placeholder="Description Product *" as="textarea" rows={3} className='border-sharp' />
+                  <Form.Control placeholder="Description Product *" as="textarea" rows={3} className='border-sharp  p-3 shadow-none' />
                 </Form.Group>
               </Form>
             </Col>
@@ -39,10 +39,10 @@ const index = () => {
               <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label><h4 className='fw-bold'>Item Details</h4></Form.Label>
-                  <Form.Control size="lg" type="email" placeholder="Unit price *" className='border-sharp' />
+                  <Form.Control type="email" placeholder="Unit price *" className='border-sharp  p-3 shadow-none' />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                  <Form.Control size="lg" type='text' placeholder="Unit Stock *" rows={3} className='border-sharp' />
+                  <Form.Control type='text' placeholder="Unit Stock *" rows={3} className='border-sharp  p-3 shadow-none' />
                 </Form.Group>
                 <Form.Group as={Row} className="mt-5">
                   <Col>

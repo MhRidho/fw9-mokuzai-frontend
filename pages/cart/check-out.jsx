@@ -9,13 +9,10 @@ const CartEmpty = () => {
   return (
     <>
       <Main>
-        <Container className='bg-profile fluid py-4'>
-          <Row>
+        <Container fluid className='bg-profile fluid py-4 px-5'>
+          <Row className='ms-sm-5'>
             <Col>
-              <h6 className='cursor ms-2'>Cart <FiChevronRight className='ms-2' /></h6>
-            </Col>
-            <Col md={11}>
-              <h6 className='cursor'>Checkout</h6>
+              <h6 className='cursor ms-2'>Cart <FiChevronRight className='mx-2' />Checkout</h6>
             </Col>
           </Row>
           <Row>

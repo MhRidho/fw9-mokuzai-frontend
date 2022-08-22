@@ -45,8 +45,8 @@ const MyProduct = () => {
   return (
     <>
       <Main>
-        <Container className='bg-profile fluid py-4'>
-          <Row>
+        <Container fluid className='bg-profile fluid py-4 px-5'>
+          <Row className='ms-sm-5'>
             <h6 className='cursor'>Wishlist <FiChevronRight className='ms-2' /></h6>
           </Row>
           <Row>
