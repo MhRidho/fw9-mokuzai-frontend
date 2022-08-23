@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import MainTemplateAuth from '../../../components/organisms/MainTemplateAuth'
 import ChangeImageProfile from '../../../components/molecules/ChangeImageProfile'
@@ -9,8 +9,16 @@ import ChangeStorename from '../../../components/molecules/ChangeStorename'
 import ChangeDescStore from '../../../components/molecules/ChangeDescStore'
 import ChangeName from '../../../components/molecules/ChangeName'
 import { FiLogOut } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+import { Getprofile } from '../../../redux/asyncAction/auth'
 
 export default function ProfileSeller() {
+  const dispatch = useDispatch()
+  useEffect(()=> {
+    dispatch(Getprofile())
+  }, [dispatch])
+  const dataProfile = useSelector((state) => state.auth.dataProfile)
+  console.log(dataProfile);
   return (
     <MainTemplateAuth title='Profile' titleBanner='Profile' descBanner='See your notifications for the latest updates'>
       <div className='d-flex flex-column gap-3'>
@@ -22,7 +30,7 @@ export default function ProfileSeller() {
               <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>Syifa</span>
               <ChangeName />
             </div>
-            <sapn>as Customer</sapn>
+            <sapn>as Seller</sapn>
           </div>
         </div>
         {/* image & name */}
@@ -31,7 +39,7 @@ export default function ProfileSeller() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>gender</span>
-              <span>female</span>
+              <span>{dataProfile?.result?.gender ? dataProfile?.result?.gender : 'empty'}</span>
             </div>
             <ChangeGender />
           </div>
@@ -39,7 +47,7 @@ export default function ProfileSeller() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>Email</span>
-              <span>email</span>
+              <span>{dataProfile?.result?.email ? dataProfile?.result?.email : 'empty'}</span>
             </div>
             <ChangeEmail />
           </div>
@@ -47,7 +55,7 @@ export default function ProfileSeller() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>Store Name</span>
-              <span>avlievavaea</span>
+              <span>{dataProfile?.result?.store_name ? dataProfile?.result?.store_name : 'empty'}</span>
             </div>
             <ChangeStorename />
           </div>
@@ -55,7 +63,7 @@ export default function ProfileSeller() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>Store Description</span>
-              <span>avlievavaea</span>
+              <span>{dataProfile?.result?.store_desc ? dataProfile?.result?.store_desc : 'empty'}</span>
             </div>
             <ChangeDescStore />
           </div>

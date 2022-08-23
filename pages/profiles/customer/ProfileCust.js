@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import MainTemplateAuth from '../../../components/organisms/MainTemplateAuth'
 import ChangeImageProfile from '../../../components/molecules/ChangeImageProfile'
@@ -7,8 +7,15 @@ import ChangeGender from '../../../components/molecules/ChangeGender'
 import ChangeDesc from '../../../components/molecules/ChangeDesc'
 import ChangeName from '../../../components/molecules/ChangeName'
 import { FiLogOut } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+import { Getprofile } from '../../../redux/asyncAction/auth'
 
 export default function ProfileCust() {
+  const dispatch = useDispatch()
+  const dataProfile = useSelector((state) => state.auth.dataProfile)
+  useEffect(()=> {
+    dispatch(Getprofile())
+  }, [dispatch])
   return (
     <MainTemplateAuth title='Profile' titleBanner='Profile' descBanner='See your notifications for the latest updates'>
       <div className='d-flex flex-column gap-3'>
@@ -17,7 +24,7 @@ export default function ProfileCust() {
           <ChangeImageProfile />
           <div className='d-flex flex-column gap-3'>
             <div className='d-flex flex-row align-items-center'>
-              <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>Syifa</span>
+              <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>{dataProfile?.result?.name ? dataProfile?.result?.name : 'empty'}</span>
               <ChangeName />
             </div>
             <sapn>as Customer</sapn>
@@ -29,7 +36,7 @@ export default function ProfileCust() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>gender</span>
-              <span>female</span>
+              <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>{dataProfile?.result?.gender ? dataProfile?.result?.gender : 'empty'}</span>
             </div>
             <ChangeGender />
           </div>
@@ -37,7 +44,7 @@ export default function ProfileCust() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>Email</span>
-              <span>email</span>
+              <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>{dataProfile?.result?.email ? dataProfile?.result?.email : 'empty'}</span>
             </div>
             <ChangeEmail />
           </div>
@@ -45,7 +52,7 @@ export default function ProfileCust() {
           <div className='d-flex flex-row justify-content-between align-items-center border border-3 w-100 p-4'>
             <div className='d-flex flex-column'>
               <span>description</span>
-              <span>avlievavaea</span>
+              <span className='c-primary font-size-mokuzai-18 font-weight-mokuzai-700'>{dataProfile?.result?.store_desc ? dataProfile?.result?.store_desc : 'empty'}</span>
             </div>
             <ChangeDesc />
           </div>

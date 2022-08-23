@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { login, registerCostumer, registerSeller } from '../asyncAction/auth';
+import { createCheckout, getAllCart, Getprofile, login, registerCostumer, registerSeller } from '../asyncAction/auth';
 
 
 const initialState = {
@@ -7,7 +7,10 @@ const initialState = {
   roles: null,
   errorMsg: null,
   successMsg: null,
-  resultMsg: {}
+  resultMsg: {},
+  dataProfile: {},
+  dataCart: {},
+  dataCheckout: {}
 };
 
 const auth = createSlice({
@@ -47,6 +50,30 @@ const auth = createSlice({
     })
     build.addCase(registerCostumer.fulfilled, (state, action)=> {
       state.successMsg = action.payload
+    })
+
+    build.addCase(Getprofile.pending, (state)=> {
+      state.errorMsg = null
+      state.successMsg = null
+    })
+    build.addCase(Getprofile.fulfilled, (state, action)=> {
+      state.dataProfile = action.payload
+    })
+
+    build.addCase(createCheckout.pending, (state)=> {
+      state.errorMsg = null
+      state.successMsg = null
+    })
+    build.addCase(createCheckout.fulfilled, (state, action)=> {
+      state.dataCheckout = action.payload
+    })
+
+    build.addCase(getAllCart.pending, (state)=> {
+      state.errorMsg = null
+      state.successMsg = null
+    })
+    build.addCase(getAllCart.fulfilled, (state, action)=> {
+      state.dataCart = action.payload.result
     })
   }
 })

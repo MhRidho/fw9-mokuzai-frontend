@@ -3,6 +3,8 @@ import { Button, Form, Modal } from 'react-bootstrap'
 import { FiEdit2 } from 'react-icons/fi'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { useDispatch, useSelector } from 'react-redux'
+import { editEmail } from '../../../redux/asyncAction/auth'
 
 const changeSechema  = Yup.object().shape({
   email: Yup.string().email('Invalid email address format').required(),
@@ -29,6 +31,11 @@ const FormChange = ({errors, handleSubmit, handleChange})=> {
 }
 
 function ModalFormEditEmail(props){
+  const dispatch = useDispatch()
+  const onChangeEmail = (value) => {
+    // console.log(value);
+    dispatch(editEmail(value))
+  }
   return (
     <Modal
       {...props}
@@ -42,7 +49,7 @@ function ModalFormEditEmail(props){
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Formik initialValues={{email: ''}} validationSchema={changeSechema}>
+        <Formik initialValues={{email: ''}} validationSchema={changeSechema} onSubmit={onChangeEmail}>
           {(props)=><FormChange {...props}/>}
         </Formik>
       </Modal.Body>

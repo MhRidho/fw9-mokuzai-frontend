@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainTemplate from '../components/organisms/MainTemplate'
 import ProductCard from '../components/molecules/ProductCard'
 import CardImage from '../components/atoms/CardImageProductDetail'
@@ -9,12 +9,59 @@ import { GrDeliver } from 'react-icons/gr'
 import { BiRuler, BiMap } from 'react-icons/bi'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
+import axiosServerSide from '../helper/axiosServerSide'
+import Router, { useRouter } from 'next/router';
+import { costumQMin, costumQPlus } from '../redux/reducers/CostomQuantityOnPageProduct'
+import { addToCart } from '../redux/asyncAction/auth'
+
+export async function getServerSideProps(context) {
+  try {
+    // const searchBy = !context.query?.searchBy? 'product_name' : context.query.searchBy
+    // const search = !context.query?.search? '' : context.query.search
+    // const sortBy = !context.query?.sortBy? 'product_price' : context.query.sortBy
+    // const sort = !context.query?.sort? 'ASC' : context.query.sort
+    // const limit = !context.query?.limit? 12 : context.query.limit
+    const id = !context.query?.id? 10 : context.query.id
+    const products = await axiosServerSide.get(`/product/details/${id}`)
+    return {
+      props: {
+        // pagination: products.data.pageInfo,
+        dataProducts: products.data.result
+      }
+    }
+  } catch (e) {
+    return {
+      props: {
+        // pagination: products.pageInfo,
+        message: e.message
+      }
+    }
+  }
+}
 
 
-export default function TestComponent() {
+export default function TestComponent(props) {
+  const dispatch = useDispatch()
   const imageUrl = useSelector((state) => state?.CostomImage.imageSrc)
-  console.log(imageUrl);
-  console.log(imageUrl);
+  const productId = useSelector((state) => state?.CostomPageProductId?.page)
+  const productQ = useSelector((state) => state.CostomQuantityOnPageProduct.quantityProduct)
+  const userId = useSelector((state) => state.auth.userId)
+  // console.log(productQ);
+  useEffect(()=> {
+    // const id = productId
+    Router.push(`/product?id=${productId}`)
+  }, [productId])
+  // console.log(props.dataProducts);
+  const addQ = ()=> {
+    dispatch(costumQPlus())
+  }
+  const minQ = ()=> {
+    dispatch(costumQMin())
+  }
+  const onAddCart = () => {
+    const param = {product_id: productId, user_id: userId, quantity: productQ}
+    dispatch(addToCart(param))
+  }
   return (
     <MainTemplate title='Product' titleBanner='My Account' descBanner='Register and log in with your account to be able to shop at will'>
       <Container className='d-flex flex-column'>
@@ -34,29 +81,29 @@ export default function TestComponent() {
         </Row>
 
         <div className='d-flex flex-column gap-3'>
-          <span className='font-size-mokuzai-32 c-primary font-weight-mokuzai-400 mb-3'>Coaster Home Furnishings Sofa in Oatmeal</span>
+          <span className='font-size-mokuzai-32 c-primary font-weight-mokuzai-400 mb-3'>{props.dataProducts.product_name ? props.dataProducts.product_name : 'undifined'}</span>
           <div className='d-flex flex-row align-items-center gap-3'>
             <span>stars</span>
             <span className='font-size-mokuzai-10'>2 (reviews)</span>
           </div>
           <div className='d-flex flex-row align-items-center gap-5 mb-4'>
-            <span className='font-size-mokuzai-32 font-weight-mokuzai-700 c-primary'>$765.99</span>
+            <span className='font-size-mokuzai-32 font-weight-mokuzai-700 c-primary'>${props.dataProducts.product_price ? props.dataProducts.product_price : null}</span>
             <span>19 Sold / 40 In Stock</span>
           </div>
-          <p>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices exurabitur ut magna dignissim, dignissiNullam vitae venenatis elit. Proin dui lacus, viverra at imperdiet non, facilisis eget orci. Vivamus ac elit tellus. Vestibulum nulla dui, consequat vitae diam eu, pretium finibus libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam vitae neque tellus.</p>
+          <p>{props.dataProducts.product_desc ? props.dataProducts.product_desc : 'deskripsi kosong'}</p>
           {/* button */}
           <div className='d-flex flex-row align-items-center gap-3 mb-4'>
             <div className='d-flex flex-row justify-content-between align-items-center p-3 quantity-btn-product border border-3'>
               <div>
-                <Button className='p-0 bgc-unset border-0 c-primary shadow-sm d-flex align-items-center'><Image src={'/icons/min.svg'} width={12} height={10} alt='minus' /></Button>
+                <Button onClick={minQ} disabled={productQ <= 1 ? true : false} className='p-0 bgc-unset border-0 c-primary shadow-sm d-flex align-items-center'><Image src={'/icons/min.svg'} width={12} height={10} alt='minus' /></Button>
               </div>
-              <span>5</span>
+              <span>{productQ}</span>
               <div>
-                <Button className='p-0 bgc-unset border-0 c-primary shadow-sm'><Image src={'/icons/plus.svg'} width={12} height={12} alt='plus' /></Button>
+                <Button onClick={addQ} className='p-0 bgc-unset border-0 c-primary shadow-sm'><Image src={'/icons/plus.svg'} width={12} height={12} alt='plus' /></Button>
               </div>
             </div>
             <div>
-              <Button className='add-cart-btn-product rounded-0 border-0 bgc-primary shadow-none'>
+              <Button onClick={onAddCart} className='add-cart-btn-product rounded-0 border-0 bgc-primary shadow-none'>
                 <span className='font-size-mokuzai-16 font-weight-mokuzai-700'>Add to cart</span>
               </Button>
             </div>
@@ -76,9 +123,9 @@ export default function TestComponent() {
           <div>
             <ul className='list-group'>
               <li className='list-group-item border-0 p-0 py-1'>SKU: N/A</li>
-              <li className='list-group-item border-0 p-0 py-1'>Categories: Furniture, Interior, Chair</li>
+              <li className='list-group-item border-0 p-0 py-1'>Categories: {props.dataProducts.category_name ? props.dataProducts.category_name : 'N/A'}</li>
               <li className='list-group-item border-0 p-0 py-1'>Tag: Furniture, Chair, Scandinavian, Modern</li>
-              <li className='list-group-item border-0 p-0 py-1'>Product ID: 274</li>
+              <li className='list-group-item border-0 p-0 py-1'>Product ID: {props.dataProducts.id ? props.dataProducts.id : 'N/A'}</li>
             </ul>
           </div>
           {/* info etc */}
