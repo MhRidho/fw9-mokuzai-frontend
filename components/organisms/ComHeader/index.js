@@ -53,35 +53,37 @@ export default function ComHeader() {
               </Dropdown>
             </a>
           </Link>
-          <Link href='#'>
-            <a className='text-decoration-none c-primary'>
-              {/* <span>SHOP</span> */}
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic" className='bgc-unset border-0 c-black shadow-none p-0'>
-                  <span className='font-weight-mokuzai-700'>SHOP</span>
-                </Dropdown.Toggle>
+          {/* <Link href='#'>
+            <a className='text-decoration-none c-primary'> */}
+          {/* <span>SHOP</span> */}
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-basic" className='bgc-unset border-0 c-black shadow-none p-0'>
+              <span className='font-weight-mokuzai-700'>SHOP</span>
+            </Dropdown.Toggle>
 
-                {/* <Dropdown.Menu variant="dark" className='rounded-0'>
+            {/* <Dropdown.Menu variant="dark" className='rounded-0'>
                   <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Shopping Cart</a></Link></Dropdown.Item>
                   <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Check Out</a></Link></Dropdown.Item>
                   <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>My Account</a></Link></Dropdown.Item>
                   <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Order Tracking</a></Link></Dropdown.Item>
                 </Dropdown.Menu> */}
-                {roles ?
-                  <Dropdown.Menu variant="dark" className='rounded-0'>
-                    <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Shopping Cart</a></Link></Dropdown.Item>
-                    <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Check Out</a></Link></Dropdown.Item>
-                    <Dropdown.Item><Link href={`/${roles == 'costumer' ? 'profile-customer' : 'profile-seller'}`}><a className='text-decoration-none text-white'>My Account</a></Link></Dropdown.Item>
-                    <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Order Tracking</a></Link></Dropdown.Item>
-                  </Dropdown.Menu>
-                  :
-                  <Dropdown.Menu variant="dark" className='rounded-0'>
-                    {/* <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>My Account</a></Link></Dropdown.Item> */}
-                    <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Order Tracking</a></Link></Dropdown.Item>
-                  </Dropdown.Menu>}
-              </Dropdown>
-            </a>
-          </Link>
+            {roles ?
+              <Dropdown.Menu variant="dark" className='rounded-0'>
+                <Dropdown.Item><Link href={'/products'}><a className='text-decoration-none text-white'>Shopping Product</a></Link></Dropdown.Item>
+                <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Shopping Cart</a></Link></Dropdown.Item>
+                <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Check Out</a></Link></Dropdown.Item>
+                <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>My Order</a></Link></Dropdown.Item>
+                <Dropdown.Item><Link href={`/${roles == 'costumer' ? 'profile/customer' : 'profile/seller'}`}><a className='text-decoration-none text-white'>My Account</a></Link></Dropdown.Item>
+                <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Order Tracking</a></Link></Dropdown.Item>
+              </Dropdown.Menu>
+              :
+              <Dropdown.Menu variant="dark" className='rounded-0'>
+                {/* <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>My Account</a></Link></Dropdown.Item> */}
+                <Dropdown.Item><Link href={'#'}><a className='text-decoration-none text-white'>Order Tracking</a></Link></Dropdown.Item>
+              </Dropdown.Menu>}
+          </Dropdown>
+          {/* </a>
+          </Link> */}
           <Link href='#'>
             <a className='text-decoration-none c-primary'>
               <span className='font-weight-mokuzai-700'>BLOG</span>
@@ -99,7 +101,7 @@ export default function ComHeader() {
               <FiHeart size={23} stroke-width={3} />
             </a>
           </Link>
-          <Link href='#'>
+          <Link href='/profile/cart'>
             <a className='text-decoration-none c-primary'>
               <FiShoppingCart size={23} stroke-width={3} />
             </a>

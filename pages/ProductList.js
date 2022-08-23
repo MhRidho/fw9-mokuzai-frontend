@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
   } catch (e) {
     return {
       props: {
-        // pagination: products.pageInfo,
+        pagination: products.pageInfo,
         message: e.message
       }
     }
@@ -214,7 +214,7 @@ export default function ProductList(props) {
               <ProductCard name={'Coaster 506222-CO Loveseat'} price={'$765.99'} /> */}
               {props?.dataProducts?.map((o) => {
                 return(
-                  <ProductCard key={o.product_name} name={o.product_name} price={o.product_price} />
+                  <ProductCard key={o.product_name} id={o.id} name={o.product_name} price={o.product_price} />
                 )
               })}
             </Row>

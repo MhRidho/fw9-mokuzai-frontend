@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { FiEdit2 } from 'react-icons/fi'
 import { Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
+import { editProfile } from '../../../redux/asyncAction/auth'
 
 const FormChange = ({errors, handleSubmit, handleChange})=> {
   return (
     <Form noValidate onSubmit={handleSubmit} className='d-flex flex-column gap-3'>
       <div className='border border-3 bg-white p-3'>
-        <Form.Control name='store_desc' className='p-0 bgc-unset border-0 shadow-none' onChange={handleChange} as='textarea' placeholder="change description store" />
+        <Form.Control name='store_desc' className='p-0 bgc-unset border-0 shadow-none' onChange={handleChange} type='text' as='textarea' placeholder="change description store" />
       </div>
       <div className='d-flex justify-content-end'>
         <Button type='submit' className='rounded-0 size-btn-auth bgc-primary border-0'>
@@ -19,6 +21,11 @@ const FormChange = ({errors, handleSubmit, handleChange})=> {
 }
 
 function ModalFormEditDescStore(props){
+  const dispatch = useDispatch()
+  const btnSubmit  = (value) => {
+    // dispatch(editProfile(value))
+    console.log(value);
+  }
   return (
     <Modal
       {...props}
@@ -32,7 +39,7 @@ function ModalFormEditDescStore(props){
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Formik initialValues={{store_desc: ''}}>
+        <Formik initialValues={{store_desc: ''}} onSubmit={btnSubmit}>
           {(props)=><FormChange {...props}/>}
         </Formik>
       </Modal.Body>

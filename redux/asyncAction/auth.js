@@ -46,3 +46,116 @@ export const login = createAsyncThunk('auth/login-user', async (request)=> {
     return result
   }
 })
+
+export const Getprofile = createAsyncThunk('auth/get-profile', async ()=> {
+  const result = {}
+  try {
+    const { data } = await axiosServer(Cookies.get('token')).get('profile')
+    result = data
+    return result
+  } catch (e) {
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const editProfile = createAsyncThunk('auth/edit-profile', async (request)=> {
+  const result = {}
+  try {
+    const send = qs.stringify(request)
+    // console.log(send);
+    const { data } = await axiosServer(Cookies.get('token')).patch('profile/edit', send)
+    window.alert(data.message)
+    result = data
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const editEmail = createAsyncThunk('auth/edit-email', async (request) => {
+  console.log(request);
+  const result = {}
+  try {
+    const send = qs.stringify(request)
+    const { data } = await axiosServer(Cookies.get('token')).patch('profile/edit-email', send)
+    window.alert(data.message)
+    result = data
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const addToCart = createAsyncThunk('auth/add-to-cart', async (request) => {
+  const result = {}
+  try {
+    const send = qs.stringify(request)
+    const { data } = await axiosServer(Cookies.get('token')).post('add_chart', send)
+    window.alert(data.message)
+    result = data
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const getAllCart = createAsyncThunk('auth/get-all-cart', async (user_id) => {
+  const result = {}
+  try {
+    const { data } = await axiosServer().get(`get_chart/${user_id}`)
+    result = data
+    console.log(result);
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const createCheckout = createAsyncThunk('auth/create-checkout', async(request) => {
+  const result = {}
+  try {
+    const send = qs.stringify(request)
+    const { data } = await axiosServer(Cookies.get('token')).post('payment/new', send)
+    console.log(data);
+    window.alert(data.message)
+    result = data.result
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})
+
+export const updateCheckout = createAsyncThunk('auth/create-checkout', async(request) => {
+  const result = {}
+  const data = {}
+  const name = request.name
+  const address = request.address
+  const phone = request.phone
+  const metode_trans = request.metode_trans
+  const id = parseInt(request.id)
+  console.log(request.id);
+  try {
+    const send = qs.stringify({name, address, phone, metode_trans})
+    console.log(send);
+    const { data } = await axiosServer(Cookies.get('token')).patch('payment/edit/' + id , send)
+    console.log(data);
+    window.alert(data.message)
+    result = data.result
+    return result
+  } catch (e) {
+    window.alert(e.response.data.message)
+    result.errorMsg = e.response.data.message
+    return result
+  }
+})

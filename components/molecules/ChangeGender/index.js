@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { FiEdit2 } from 'react-icons/fi'
 import { Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
+import { editProfile } from '../../../redux/asyncAction/auth'
 
 const FormChange = ({errors, handleSubmit, handleChange})=> {
   return (
@@ -24,6 +26,11 @@ const FormChange = ({errors, handleSubmit, handleChange})=> {
 }
 
 function ModalFormEditGender(props){
+  const dispatch = useDispatch()
+  const onChangeGender = (value) => {
+    dispatch(editProfile(value))
+    // console.log(value);
+  }
   return (
     <Modal
       {...props}
@@ -37,7 +44,7 @@ function ModalFormEditGender(props){
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Formik initialValues={{gender: ''}}>
+        <Formik initialValues={{gender: ''}} onSubmit={onChangeGender}>
           {(props)=><FormChange {...props}/>}
         </Formik>
       </Modal.Body>
